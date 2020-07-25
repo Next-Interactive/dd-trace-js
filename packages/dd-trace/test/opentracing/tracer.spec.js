@@ -361,14 +361,8 @@ describe('Tracer', () => {
     it('should handle errors', () => {
       tracer = new Tracer(config)
 
-      expect(() => tracer.inject({})).not.to.throw()
+      expect(() => tracer.inject()).not.to.throw()
       expect(log.error).to.have.been.calledOnce
-    })
-
-    it('should ignore empty span', () => {
-      tracer = new Tracer(config)
-
-      expect(log.error).to.not.have.been.called
     })
 
     it('should generate the sampling priority', () => {
